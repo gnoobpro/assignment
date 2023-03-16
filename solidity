@@ -1,21 +1,16 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-contract ExampleContract {
-    uint public value;
-
-    function setValue(uint newValue) public {
-        require(newValue > 0, "Value must be greater than zero");
-
-        // Use assert to check for overflow
-        uint oldValue = value;
-        value += newValue;
-        assert(value > oldValue);
-
-        // Use revert to revert changes if something goes wrong
-        if (value == 42) {
-            value = oldValue;
-            revert("Oops, the value is 42!");
-        }
+contract SimpleContract {
+    uint public myNumber;
+    string public myString;
+    
+    function setNumber(uint _number) public {
+        myNumber = _number;
+    }
+    
+    function setString(string memory _string) public {
+        myString = _string;
     }
 }
+
